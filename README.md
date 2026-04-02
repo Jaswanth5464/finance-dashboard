@@ -8,7 +8,7 @@
 
 | | Link |
 |---|---|
-| 🟢 **Swagger UI** | https://finance-dashboard-p6h7.onrender.com/swagger-ui.html |
+| 🟢 **Swagger UI** | https://finance-dashboard-p6h7.onrender.com/swagger-ui/index.html#/ |
 | 📦 **GitHub Repo** | https://github.com/Jaswanth5464/finance-dashboard |
 | 🌐 **Base API URL** | https://finance-dashboard-p6h7.onrender.com |
 
@@ -22,7 +22,7 @@ No setup needed. The API is live and pre-loaded with test data.
 
 **1. Open Swagger UI:**
 ```
-https://finance-dashboard-p6h7.onrender.com/swagger-ui.html
+https://finance-dashboard-p6h7.onrender.com/swagger-ui/index.html#/
 ```
 
 **2. Login — click `POST /api/auth/login` → Try it out → paste this:**

@@ -1,6 +1,7 @@
 package com.finance.dashboard.exception;
 
 import com.finance.dashboard.dto.ApiResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.AccessDeniedException;
@@ -15,6 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestControllerAdvice
+@Slf4j
 public class GlobalExceptionHandler {
 
     // Handles @NotBlank, @Email, @NotNull validation failures
@@ -77,6 +79,8 @@ public class GlobalExceptionHandler {
     // Safety net — catches anything unexpected and hides internal details
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiResponse<Void>> handleGeneral(Exception ex) {
+        // Log the REAL error so we can debug it in Render logs
+        log.error("Unexpected error: {}", ex.getMessage(), ex);
         return ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(ApiResponse.error("An unexpected error occurred. Please try again."));

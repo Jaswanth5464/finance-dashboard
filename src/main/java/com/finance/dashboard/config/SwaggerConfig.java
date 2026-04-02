@@ -57,8 +57,9 @@ public class SwaggerConfig {
                         )
                         .version("1.0.0")
                         .contact(new Contact()
-                                .name("Jaswanth")
-                                .email("jaswanth@gmail.com")))
+                                .name("Jaswanth Kanamrlapudi")
+                                .email("jaswanth5464@gmail.com")
+                                .url("https://www.linkedin.com/in/jaswanth-kanamrlapudi-a41197252")))
                 // Adds the security scheme globally
                 .addSecurityItem(new SecurityRequirement().addList(securitySchemeName))
                 .components(new Components()

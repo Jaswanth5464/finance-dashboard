@@ -41,6 +41,9 @@ public class FinancialRecordService {
 
     // Returns paginated, filtered list of records
     // All params are optional — null means "don't filter by this"
+    // @Transactional(readOnly) keeps the Hibernate session open so the lazy-loaded
+    // createdBy User field can be accessed inside RecordResponse.from()
+    @Transactional(readOnly = true)
     public Page<RecordResponse> getAll(
             RecordType type,
             Category category,
@@ -95,13 +98,14 @@ public class FinancialRecordService {
     }
 
     // Get single record by ID
+    @Transactional(readOnly = true)
     public RecordResponse getById(Long id) {
         FinancialRecord record = findActiveRecordById(id);
         return RecordResponse.from(record);
     }
 
     // Update existing record — only updates fields that are provided
-    @Transactional
+    @Transactional  // readOnly=false (default) because we write
     public RecordResponse update(Long id, RecordRequest request) {
         FinancialRecord record = findActiveRecordById(id);
 

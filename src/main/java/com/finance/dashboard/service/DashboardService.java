@@ -6,6 +6,7 @@ import com.finance.dashboard.model.RecordType;
 import com.finance.dashboard.repository.FinancialRecordRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.LinkedHashMap;
@@ -19,6 +20,7 @@ public class DashboardService {
 
     private final FinancialRecordRepository recordRepository;
 
+    @Transactional(readOnly = true)
     public DashboardSummaryResponse getSummary() {
         // Get all the numbers from the DB
         BigDecimal totalIncome = recordRepository.sumIncome();

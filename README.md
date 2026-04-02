@@ -16,7 +16,7 @@
 
 ---
 
-## ⚡ Quick Start (For Reviewer)
+## ⚡ Quick Start
 
 No setup needed. The API is live and pre-loaded with test data.
 

@@ -9,7 +9,7 @@
 | | Link |
 |---|---|
 | 🟢 **Swagger UI** | https://finance-dashboard-p6h7.onrender.com/swagger-ui.html |
-| 📦 **GitHub Repo** | https://github.com/jaswanth/finance-dashboard |
+| 📦 **GitHub Repo** | https://github.com/Jaswanth5464/finance-dashboard |
 | 🌐 **Base API URL** | https://finance-dashboard-p6h7.onrender.com |
 
 > **Note:** Hosted on Render free tier. First request after inactivity may take 30 seconds to wake up.
@@ -106,6 +106,22 @@ The live API runs on two free cloud services:
 - The app on Render reads 5 environment variables: `MYSQLHOST`, `MYSQLPORT`, `MYSQLDATABASE`, `MYSQLUSER`, `MYSQLPASSWORD`
 - Aiven requires **SSL** for all connections — the JDBC URL uses `ssl-mode=REQUIRED`
 - The Docker image is built from the included `Dockerfile` using a multi-stage build (Maven build stage + lightweight JRE runtime stage)
+
+---
+
+## 🧠 Technology Choices
+
+### Why Java + Spring Boot?
+
+I chose Java with Spring Boot because it provides a strong foundation for building scalable and maintainable backend systems.
+
+- **Structured Architecture** — Spring Boot naturally encourages a layered design (Controller → Service → Repository), which keeps concerns cleanly separated and the codebase easy to navigate.
+- **Built-in Security** — Spring Security with JWT makes role-based access control straightforward to implement and reason about.
+- **Production Readiness** — Spring Boot is widely used in enterprise-grade systems. Choosing it shows I understand what real-world backend development looks like.
+- **Rich Ecosystem** — Spring Data JPA removes boilerplate database code, Bucket4j plugs in as middleware for rate limiting, and SpringDoc generates Swagger UI automatically. Each tool solved a real problem without reinventing the wheel.
+- **MySQL for Persistence** — Relational data with clear relationships (User → FinancialRecord) is a natural fit for SQL. MySQL is battle-tested, free, and well-supported by JPA/Hibernate.
+
+For this assignment, Spring Boot let me focus entirely on business logic, access control, and data design — instead of spending time on low-level plumbing.
 
 ---
 
@@ -267,7 +283,7 @@ CREATE DATABASE finance_db;
 
 ### Step 2 — Clone the repo
 ```bash
-git clone https://github.com/jaswanth/finance-dashboard.git
+git clone https://github.com/Jaswanth5464/finance-dashboard.git
 cd finance-dashboard
 ```
 
@@ -460,3 +476,19 @@ src/main/java/com/finance/dashboard/
     ├── RateLimitFilter.java    # Enforces request rate limit per IP
     └── SecurityConfig.java     # Defines which endpoints are public vs protected
 ```
+
+---
+
+## 👤 Author
+
+**Jaswanth Kanamrlapudi**
+
+| | |
+|---|---|
+| 📧 **Email** | [jaswanth5464@gmail.com](mailto:jaswanth5464@gmail.com) |
+| 💼 **LinkedIn** | [linkedin.com/in/jaswanth-kanamrlapudi-a41197252](https://www.linkedin.com/in/jaswanth-kanamrlapudi-a41197252) |
+| 🐙 **GitHub** | [github.com/Jaswanth5464](https://github.com/Jaswanth5464) |
+
+---
+
+*Built as part of the Finance Data Processing and Access Control Backend — Backend Developer Intern Assignment.*
